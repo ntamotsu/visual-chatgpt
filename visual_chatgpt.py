@@ -889,7 +889,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "-s", "--share", help="Shareable link", action="store_true", default=False
     )
-    parser.add_argument('--llm', type=str, default="text-davinci-003")
+    parser.add_argument('--llm', type=str, default="gpt-3.5-turbo")
     args = parser.parse_args()
     load_dict = {e.split('_')[0].strip(): e.split('_')[1].strip() for e in args.load.split(',')}
     bot = ConversationBot(load_dict=load_dict,llm_model=args.llm)
