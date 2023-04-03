@@ -224,7 +224,7 @@ class Text2Image:
         self.device = device
         self.torch_dtype = torch.float16 if 'cuda' in device else torch.float32
         self.pipe = StableDiffusionPipeline.from_pretrained("WarriorMama777/OrangeMixs", model_path="Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors",
-                                                            torch_dtype=self.torch_dtype,revision="fp16")
+                                                            torch_dtype=self.torch_dtype)
         self.pipe.scheduler = DPMSolverMultistepScheduler.from_config(self.pipe.scheduler.config)
         self.pipe.to(device)
         self.pipe.enable_xformers_memory_efficient_attention()
