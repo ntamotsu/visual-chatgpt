@@ -223,7 +223,7 @@ class Text2Image:
         print("Initializing Text2Image to %s" % device)
         self.device = device
         self.torch_dtype = torch.float16 if 'cuda' in device else torch.float32
-        self.pipe = StableDiffusionPipeline.from_pretrained("WarriorMama777/OrangeMixs/AOM3A1B_orangemixs",
+        self.pipe = StableDiffusionPipeline.from_pretrained("WarriorMama777/OrangeMixs", model_path="Models/AbyssOrangeMix3/AOM3A1B_orangemixs.safetensors",
                                                             torch_dtype=self.torch_dtype,revision="fp16")
         self.pipe.scheduler = DPMSolverMultistepScheduler.from_config(self.pipe.scheduler.config)
         self.pipe.to(device)
